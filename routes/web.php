@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\JobController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +26,14 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::group(['middleware'=>'guest'],function(){
+    Route::get('/sign-in/github',[AuthenticatedSessionController::class,'github']);
+    Route::get('/sign-in/github/redirect',[AuthenticatedSessionController::class,'githubRedirect']);
+});
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+
+Route::group(['prefix'=>'admin','middleware'=>['auth','verified']],function(){
     Route::get('/',[DashboardController::class,'adminboard']);
+
+    Route::resource('jobs',JobController::class);
 });

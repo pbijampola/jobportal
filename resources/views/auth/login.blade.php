@@ -40,7 +40,7 @@
                 </label>
             </div>
 
-            <div class="d-flex justify-content-end mt-4">
+            <div class="d-flex justify-content-center mt-4">
                 @if (Route::has('password.request'))
                     <a class="text-muted" href="{{ route('password.request') }}" style="margin-right: 15px; margin-top: 15px;">
                         {{ __('Forgot your password?') }}
@@ -51,6 +51,14 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+            <div class="form-row mt-4 p-2 text-center">
+                <a href="http://" class="btn btn-dark">Login With Google</a>
+                <a href="/sign-in/github" class="btn btn-secondary">Login With Github</a>
+            </div>
+            {{-- <div class="form-row mt-2 p-2 text-center">
+                <a href="http://" class="btn btn-dark">Login With Facebook</a>
+                <a href="http://" class="btn btn-dark">Login With Instagram</a>
+            </div> --}}
         </form>
     </x-auth-card>
 </x-guest-layout>
