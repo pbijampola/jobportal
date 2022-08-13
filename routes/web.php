@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -35,5 +36,6 @@ Route::group(['middleware'=>'guest'],function(){
 Route::group(['prefix'=>'admin','middleware'=>['auth','verified']],function(){
     Route::get('/',[DashboardController::class,'adminboard']);
 
+    Route::resource('companies',CompanyController::class);
     Route::resource('jobs',JobController::class);
 });

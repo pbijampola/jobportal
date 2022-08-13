@@ -21,7 +21,7 @@ class CreateJobsTable extends Migration
             $table->string('benefit')->nullable();
             $table->string('skills');
             $table->string('country');
-            $table->string('stae');
+            $table->string('state')->nullable();
             $table->string('city');
             $table->string('carrier_level');
             $table->string('salary_from');

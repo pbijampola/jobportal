@@ -106,7 +106,8 @@
           <li><form action="{{ route('logout') }}" method="post">
             @csrf
             <button type="submit" class="danger" ><i data-feather="log-out" aria-hidden="true"></i>
-                <span>Log out</span></button></li>
+                <span>Log out</span></button>
+            </li>
 
         </ul>
       </div>
