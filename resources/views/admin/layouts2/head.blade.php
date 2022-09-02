@@ -15,4 +15,5 @@
     {{-- <link rel="stylesheet" href="{{asset('backend2/assets/css/mstyle.css')}}"> --}}
 
     <link rel="shortcut icon" href="{{asset('backend2/assets/images/favicon.png')}}" />
+    @livewireStyles
   </head>

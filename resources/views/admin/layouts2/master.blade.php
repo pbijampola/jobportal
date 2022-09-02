@@ -123,15 +123,16 @@
               <li class="nav-item nav-profile dropdown border-0">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
                   <img class="nav-profile-img mr-2" alt="" src="{{asset('backend2/assets/images/faces/face1.jpg')}}" />
-                  <span class="profile-name">Henry Klein</span>
+                  <span class="profile-name">{{Auth::user()->name}}</span>
                 </a>
                 <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
-                  <a class="dropdown-item" href="#">
-                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                  <p class="dropdown-item">
+                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </p>
                     <form action="{{route('logout')}}" method="POST">
+                        @csrf
                         {{-- <button type="submit"><i class="mdi mdi-logout mr-2 text-primary"> Sign Out</button> --}}
-                        <a class="dropdown-item" href="#">
-                            <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+                        <p class="dropdown-item">
+                            <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </p>
                     </form>
 
                 </div>
@@ -144,17 +145,7 @@
         </nav>
         <div class="main-panel">
           <div class="content-wrapper pb-0">
-            <div class="page-header flex-wrap">
-              <h3 class="mb-0"> Hi, welcome back! <span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Your web analytics dashboard template.</span>
-              </h3>
-              <div class="d-flex">
-                <button type="button" class="btn btn-sm bg-white btn-icon-text border">
-                  <i class="mdi mdi-email btn-icon-prepend"></i> Email </button>
-                <button type="button" class="btn btn-sm bg-white btn-icon-text border ml-3">
-                  <i class="mdi mdi-printer btn-icon-prepend"></i> Print </button>
-                <button type="button" class="btn btn-sm ml-3 btn-success"> Add User </button>
-              </div>
-            </div>
+
             @yield('content')
             {{-- <div class="row">
               <div class="col-xl-3 col-lg-12 stretch-card grid-margin">

@@ -19,7 +19,7 @@ class CreateSlidersTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('slider_link');
-            $table->boolean('status')->default(1);
+            $table->string('status')->enumerate(['Active','Inactive'])->default(1);
             $table->timestamps();
         });
     }

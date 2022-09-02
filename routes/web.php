@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobController;
@@ -38,4 +39,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','verified']],function(){
 
     Route::resource('companies',CompanyController::class);
     Route::resource('jobs',JobController::class);
+    Route::resource('categories',CategoryController::class);
+
+    //slider routes
+    Route::get('slider','App\Http\Controllers\Admin\SliderController@index')->name('slider.index');
+    Route::get('slider/create','App\Http\Controllers\Admin\SliderController@create')->name('slider.create');
+    Route::post('slider/store','App\Http\Controllers\Admin\SliderController@store')->name('slider.store');
+    Route::get('slider/edit{$id}','App\Http\Controllers\Admin\SliderController@edit')->name('slider.edit');
+    Route::post('slider/update','App\Http\Controllers\Admin\SliderController@update')->name('slider.update');
+    Route::get('slider/delete','App\Http\Controllers\Admin\SliderController@destroy')->name('slider.destroy');
 });

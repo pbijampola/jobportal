@@ -21,4 +21,6 @@
 <script src="{{asset('backend2/assets/vendors/select2/select2.min.js')}}"></script>
 <script src="{{asset('backend2/assets/js/select2.js')}}"></script>
 
+@livewireScripts
+
 <!-- End custom js for this page -->
